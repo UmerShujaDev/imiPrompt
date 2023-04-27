@@ -12,6 +12,7 @@ const Filters = () => {
     categoryDependentData,
     categories,
     setCategories,
+    selectedCards,
     setCategoryDependentData,
   } = useContext(AppContext);
   const handleButtonClick = (parent) => {
@@ -54,7 +55,7 @@ const Filters = () => {
               ({ id, title, selected }) => (
                 <Cards
                   title={title}
-                  selected={selected}
+                  selected={selectedCards.find((selectedCard) => selectedCard === title) || selected}
                   parent={categoryData}
                   id={id}
                 />
