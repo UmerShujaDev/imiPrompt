@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,7 +14,12 @@ import {
   categories as categoryData,
   categoryDependentData as categoryRelevantData,
 } from "./Constants/constants";
+
 export const AppContext = createContext();
+
+export function useBuilderContext() {
+  return useContext(AppContext);
+}
 
 function App() {
   const [selectedCards, setSelectedCards] = useState([]);
