@@ -8,7 +8,6 @@ import {
 } from "../../Constants/constants";
 
 const Filters = () => {
-
   const builderContext = useBuilderContext();
 
   const builderProps = useMemo(() => {
@@ -26,13 +25,25 @@ const Filters = () => {
     setCategoryDependentData,
     selectedCards,
     setCategories,
-    categories
+    categories,
   } = builderProps;
 
   const handleButtonClick = (parent) => {
     setCategoryDependentData(() => {
       if (categoryRelevantData?.[parent])
-        return { [parent]: categoryRelevantData[parent] };
+      return {
+        [parent]: [
+          ...categoryRelevantData[parent].map(({ id, title, selected }) => {
+            return {
+              id,
+              title,
+              selected: selectedCards.find(
+                (selectedCard) => selectedCard === title ? true : false
+              ),
+            };
+          }),
+        ],
+      };
     });
 
     setCategories({
@@ -43,6 +54,7 @@ const Filters = () => {
       },
     });
   };
+
   return (
     <>
       <div className="row mb-5">
@@ -69,7 +81,11 @@ const Filters = () => {
               ({ id, title, selected }) => (
                 <Cards
                   title={title}
-                  selected={selectedCards.find((selectedCard) => selectedCard === title) || selected}
+                  selected={
+                    selectedCards.find(
+                      (selectedCard) => selectedCard === title
+                    ) || selected
+                  }
                   parent={categoryData}
                   id={id}
                 />

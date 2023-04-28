@@ -27,6 +27,7 @@ function App() {
   const [categoryDependentData, setCategoryDependentData] =
     useState(categoryRelevantData);
 
+
   const value = {
     selectedCards,
     setSelectedCards,
