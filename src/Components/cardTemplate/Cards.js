@@ -2,21 +2,23 @@ import React, { useMemo } from "react";
 import { useBuilderContext } from "../../App";
 
 const Cards = ({ parent, title, selected, id }) => {
- 
- const builderContext = useBuilderContext();
+  const builderContext = useBuilderContext();
 
- const builderProps =  useMemo(() => {
+  const builderProps = useMemo(() => {
     return {
       categoryDependentData: builderContext.categoryDependentData,
-      setCategoryDependentData:  builderContext.setCategoryDependentData,
-      setSelectedCards:  builderContext.setSelectedCards,
-      selectedCards: builderContext.selectedCards,      
+      setCategoryDependentData: builderContext.setCategoryDependentData,
+      setSelectedCards: builderContext.setSelectedCards,
+      selectedCards: builderContext.selectedCards,
     };
   }, [builderContext]);
 
-  const { categoryDependentData,setCategoryDependentData,setSelectedCards,selectedCards} = builderProps
-
-
+  const {
+    categoryDependentData,
+    setCategoryDependentData,
+    setSelectedCards,
+    selectedCards,
+  } = builderProps;
 
   const handleCardClick = () => {
     setCategoryDependentData({

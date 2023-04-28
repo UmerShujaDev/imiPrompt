@@ -1,22 +1,27 @@
 import React, { useMemo } from "react";
-import {  useBuilderContext } from "../../App";
+import { useBuilderContext } from "../../App";
 import { Notification } from "../../Constants/utils";
 import { categories, categoryDependentData } from "../../Constants/constants";
 
 const SideBar = () => {
   const builderContext = useBuilderContext();
 
-  const builderProps =  useMemo(() => {
-     return {
-       categoryDependentData: builderContext.categoryDependentData,
-       setCategoryDependentData: builderContext.setCategoryDependentData,
-       setSelectedCards:  builderContext.setSelectedCards,
-       selectedCards: builderContext.selectedCards, 
-       setCategories: builderContext.setCategories     
-     };
-   }, [builderContext]);
- 
-   const { setCategoryDependentData, setSelectedCards, selectedCards, setCategories} = builderProps
+  const builderProps = useMemo(() => {
+    return {
+      categoryDependentData: builderContext.categoryDependentData,
+      setCategoryDependentData: builderContext.setCategoryDependentData,
+      setSelectedCards: builderContext.setSelectedCards,
+      selectedCards: builderContext.selectedCards,
+      setCategories: builderContext.setCategories,
+    };
+  }, [builderContext]);
+
+  const {
+    setCategoryDependentData,
+    setSelectedCards,
+    selectedCards,
+    setCategories,
+  } = builderProps;
 
   const handleReset = () => {
     try {
