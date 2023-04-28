@@ -1,20 +1,34 @@
-import React, { useContext } from "react";
+import React, { useMemo } from "react";
 import Cards from "../cardTemplate/Cards";
 import { Button } from "antd";
-import { AppContext } from "../../App";
+import { useBuilderContext } from "../../App";
 import {
   categoryDependentData as categoryRelevantData,
   categories as categoryData,
 } from "../../Constants/constants";
 
 const Filters = () => {
+
+  const builderContext = useBuilderContext();
+
+  const builderProps = useMemo(() => {
+    return {
+      categoryDependentData: builderContext.categoryDependentData,
+      setCategoryDependentData: builderContext.setCategoryDependentData,
+      selectedCards: builderContext.selectedCards,
+      setCategories: builderContext.setCategories,
+      categories: builderContext.categories,
+    };
+  }, [builderContext]);
+
   const {
     categoryDependentData,
-    categories,
-    setCategories,
-    selectedCards,
     setCategoryDependentData,
-  } = useContext(AppContext);
+    selectedCards,
+    setCategories,
+    categories
+  } = builderProps;
+
   const handleButtonClick = (parent) => {
     setCategoryDependentData(() => {
       if (categoryRelevantData?.[parent])

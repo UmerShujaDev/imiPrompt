@@ -15,7 +15,7 @@ import {
   categoryDependentData as categoryRelevantData,
 } from "./Constants/constants";
 
-export const AppContext = createContext();
+const AppContext = createContext();
 
 export function useBuilderContext() {
   return useContext(AppContext);
