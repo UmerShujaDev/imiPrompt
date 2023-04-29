@@ -45,7 +45,7 @@ const Cards = ({ parent, title, selected, id }) => {
   return (
     <>
       <div
-        className="card shadow-sm mb-3"
+        className="card shadow-sm mb-3 mx-auto d-block"
         onClick={handleCardClick}
         style={{ width: "15rem", cursor: "pointer" }}
       >
