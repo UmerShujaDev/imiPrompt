@@ -10,10 +10,10 @@ const Builder = () => {
       <NavBar />
       <div className="container-fluid">
         <div className="row mt-3">
-          <div className="col-3">
+          <div className="col-lg-3">
             <SideBar />
           </div>
-          <div className="col-9">
+          <div className="col-lg-9">
             <Body />
           </div>
         </div>
