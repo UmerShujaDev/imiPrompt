@@ -28,7 +28,7 @@ const NavBar = () => {
               <li className="nav-item">
                 <NavLink
                   className="nav-link active"
-                  to={`/builder`}
+                  to={`/`}
                 >
                   Builder
                 </NavLink>

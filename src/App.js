@@ -41,8 +41,7 @@ function App() {
       <AppContext.Provider value={value}>
         <Router>
           <Routes>
-            <Route path="/" element={<Navigate to="/builder" />} />
-            <Route path="/builder" element={<Builder />} />
+            <Route path="/" element={<Builder />} />
           </Routes>
         </Router>
       </AppContext.Provider>
