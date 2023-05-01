@@ -1,10 +1,4 @@
 import React, { useState, createContext, useContext } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -39,11 +33,7 @@ function App() {
   return (
     <>
       <AppContext.Provider value={value}>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Builder />} />
-          </Routes>
-        </Router>
+       <Builder />
       </AppContext.Provider>
     </>
   );
